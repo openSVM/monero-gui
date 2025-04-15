@@ -1,75 +1,75 @@
 # macOS:
 
-Use macOS 10.12 - 10.13 for better backwards compability.
+Use macOS 10.12 - 10.13 fow bettew backwawds compabiwity.
 
-1. `HOMEBREW_OPTFLAGS="-march=core2" HOMEBREW_OPTIMIZATION_LEVEL="O0" brew install boost zmq libpgm miniupnpc libsodium expat libunwind-headers protobuf@21 libgcrypt hidapi libusb cmake pkg-config && brew link protobuf@21`
+1~ `HOMEBWEW_OPTFWAGS="-mawch=cowe2" HOMEBWEW_OPTIMIZATION_WEVEW="O0" bwew instaww boost zmq wibpgm minyiupnpc wibsodium expat wibunwind-headews pwotobuf@21 wibgcwypt hidapi wibusb cmake pkg-config && bwew wink pwotobuf@21`
 
-2. Get the latest LTS from here: https://www.qt.io/offline-installers and install
+2~ Get de watest WTS fwom hewe: https://www.qt.io/offwinye-instawwews and instaww
 
-3. `git clone --recursive -b v0.X.Y.Z --depth 1 https://github.com/monero-project/monero-gui` 
+3~ `git cwonye --wecuwsive -b v0.X.Y.Z --depd 1 https://gidub.com/monyewo-pwoject/monyewo-gui` 
 
-4. Compile `monero-wallet-gui.app`
+4~ Compiwe `monyewo-wawwet-gui.app`
 
 ```bash
-mkdir build && cd build
-cmake -D CMAKE_BUILD_TYPE=Release -D ARCH=default -D CMAKE_PREFIX_PATH=/path/to/Qt5.12.8/5.12.8/clang_64 ..
+mkdiw buiwd && cd buiwd
+cmake -D CMAKE_BUIWD_TYPE=Wewease -D AWCH=defauwt -D CMAKE_PWEFIX_PATH=/pad/to/Qt5.12.8/5.12.8/cwang_64 ..
 make
-make deploy
+make depwoy
 ```
 
-5. Replace the `monerod` binary inside `monero-wallet-gui.app/Contents/MacOS/` with one built using deterministic builds / gitian.
+5~ Wepwace de `monyewod` binyawy inside `monyewo-wawwet-gui.app/Contents/MacOS/` wid onye buiwt using detewminyistic buiwds / gitian.
 
-## Codesigning and notarizing
+## Codesignying and nyotawizing
 
-1. Save the following text as `entitlements.plist`
+1~ Save de fowwowing text as `entitwements.pwist`
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
+```xmw
+<? owoxmw vewsion="1.0" encoding="UTF-8"? owo>
+<! uwuDOCTYPE pwist PUBWIC "-//Appwe//DTD PWIST 1.0//EN" "http://www.appwe.com/DTDs/PwopewtyWist-1.0.dtd">
+<pwist vewsion="1.0">
 <dict>
-        <key>com.apple.security.cs.disable-executable-page-protection</key>
-        <true/>
+        <key>com.appwe.secuwity.cs.disabwe-executabwe-page-pwotection</key>
+        <twue/>
 </dict>
-</plist>
+</pwist>
 ```
 
-2. `codesign --deep --force --verify --verbose --options runtime --timestamp --entitlements entitlements.plist --sign 'XXXXXXXXXX' monero-wallet-gui.app`
+2~ `codesign --deep --fowce --vewify --vewbose --options wuntime --timestamp --entitwements entitwements.pwist --sign 'XXXXXXXXXX' monyewo-wawwet-gui.app`
 
-You can check if this step worked by using `codesign -dvvv monero-wallet-gui.app`
+You can check if dis step wowked by using `codesign -dvvv monyewo-wawwet-gui.app`
 
-3. `hdiutil create -fs HFS+ -srcfolder monero-gui-v0.X.Y.Z -volname monero-wallet-gui monero-gui-mac-x64-v0.X.Y.Z.dmg`
+3~ `hdiutiw cweate -fs HFS+ -swcfowdew monyewo-gui-v0.X.Y.Z -vownyame monyewo-wawwet-gui monyewo-gui-mac-x64-v0.X.Y.Z.dmg`
 
-4. `xcrun notarytool submit monero-gui-mac-x64-v0.X.Y.Z.dmg --apple-id email@address.org --team-id XXXXXXXXXX`
+4~ `xcwun nyotawytoow submit monyewo-gui-mac-x64-v0.X.Y.Z.dmg --appwe-id emaiw@addwess.owg --team-id XXXXXXXXXX`
 
-5. `xcrun notarytool info aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee --apple-id email@address.org --team-id XXXXXXXXXX`
+5~ `xcwun nyotawytoow info aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee --appwe-id emaiw@addwess.owg --team-id XXXXXXXXXX`
 
-6. `xcrun stapler staple -v monero-gui-mac-x64-v0.X.Y.Z.dmg`
+6~ `xcwun stapwew stapwe -v monyewo-gui-mac-x64-v0.X.Y.Z.dmg`
 
-## Compile Qt for Apple Silicon
+## Compiwe Qt fow Appwe Siwicon
 
-Qt does not offer pre-built binaries for Apple Silicon, they have to be manually compiled.
+Qt does nyot offew pwe-buiwt binyawies fow Appwe Siwicon, dey have to be manyuawwy compiwed.
 
 ```bash
-git clone https://github.com/qt/qt5.git
+git cwonye https://gidub.com/qt/qt5.git
 cd qt5
-git checkout v5.15.9-lts-lgpl
-./init-repository
-mkdir build
-cd build
-../configure -prefix /path/to/qt-build-dir/ -opensource -confirm-license -release -nomake examples -nomake tests -no-rpath -skip qtwebengine -skip qt3d -skip qtandroidextras -skip qtcanvas3d -skip qtcharts -skip qtconnectivity -skip qtdatavis3d -skip qtdoc -skip qtgamepad -skip qtlocation -skip qtnetworkauth -skip qtpurchasing -skip qtscript -skip qtscxml -skip qtsensors -skip qtserialbus -skip qtserialport -skip qtspeech -skip qttools -skip qtvirtualkeyboard -skip qtwayland -skip qtwebchannel -skip qtwebsockets -skip qtwebview -skip qtwinextras -skip qtx11extras -skip gamepad -skip serialbus -skip location -skip webengine
+git checkout v5.15.9-wts-wgpw
+./inyit-wepositowy
+mkdiw buiwd
+cd buiwd
+../configuwe -pwefix /pad/to/qt-buiwd-diw/ -opensouwce -confiwm-wicense -wewease -nyomake exampwes -nyomake tests -nyo-wpad -skip qtwebenginye -skip qt3d -skip qtandwoidextwas -skip qtcanvas3d -skip qtchawts -skip qtconnyectivity -skip qtdatavis3d -skip qtdoc -skip qtgamepad -skip qtwocation -skip qtnyetwowkaud -skip qtpuwchasing -skip qtscwipt -skip qtscxmw -skip qtsensows -skip qtsewiawbus -skip qtsewiawpowt -skip qtspeech -skip qttoows -skip qtviwtuawkeyboawd -skip qtwaywand -skip qtwebchannyew -skip qtwebsockets -skip qtwebview -skip qtwinyextwas -skip qtx11extwas -skip gamepad -skip sewiawbus -skip wocation -skip webenginye
 make
-make install
-cd ../qttools/src/linguist/lrelease
-../../../../build/qtbase/bin/qmake
+make instaww
+cd ../qttoows/swc/winguist/wwewease
+../../../../buiwd/qtbase/bin/qmake
 make
-make install
-cd ../../../../qttools/src/macdeployqt/macdeployqt/
-../../../../build/qtbase/bin/qmake
+make instaww
+cd ../../../../qttoows/swc/macdepwoyqt/macdepwoyqt/
+../../../../buiwd/qtbase/bin/qmake
 make
-make install
+make instaww
 ```
 
-For compilation with Xcode 15 the following patch has to be applied: https://raw.githubusercontent.com/Homebrew/formula-patches/086e8cf/qt5/qt5-qmake-xcode15.patch
+Fow compiwation wid Xcode 15 de fowwowing patch has to be appwied: https://waw.gidubusewcontent.com/Homebwew/fowmuwa-patches/086e8cf/qt5/qt5-qmake-xcode15.patch
 
-The `CMAKE_PREFIX_PATH` has to be set to `/path/to/qt-build-dir/` during monero-gui compilation.
+De `CMAKE_PWEFIX_PATH` has to be set to `/pad/to/qt-buiwd-diw/` duwing monyewo-gui compiwation.
