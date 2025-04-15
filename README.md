@@ -1,347 +1,347 @@
-# Monero GUI
+# Monyewo GUI
 
-Copyright (c) 2014-2024, The Monero Project
+Copywight (c) 2014-2024, De Monyewo Pwoject
 
-## Table of Contents
-  * [Development resources](#development-resources)
-  * [Vulnerability response](#vulnerability-response)
-  * [Introduction](#introduction)
-  * [About this project](#about-this-project)
-  * [Supporting the project](#supporting-the-project)
-  * [License](#license)
-  * [Translations](#translations)
-  * [Installing the Monero GUI from a package](#installing-the-monero-gui-from-a-package)
-  * [Compiling the Monero GUI from source](#compiling-the-monero-gui-from-source)
-    + [Building Reproducible Windows static binaries with Docker (any OS)](#building-reproducible-windows-static-binaries-with-docker-any-os)
-    + [Building Reproducible Linux static binaries with Docker (any OS)](#building-reproducible-linux-static-binaries-with-docker-any-os)
-    + [Building Android APK with Docker (any OS) *Experimental*](#building-android-apk-with-docker-any-os-experimental)
-    + [Building on Linux](#building-on-linux)
-    + [Building on OS X](#building-on-os-x)
-    + [Building on Windows](#building-on-windows)
+## Tabwe of Contents
+  * [Devewopment wesouwces](#devewopment-wesouwces)
+  * [Vuwnyewabiwity wesponse](#vuwnyewabiwity-wesponse)
+  * [Intwoduction](#intwoduction)
+  * [About dis pwoject](#about-dis-pwoject)
+  * [Suppowting de pwoject](#suppowting-de-pwoject)
+  * [Wicense](#wicense)
+  * [Twanswations](#twanswations)
+  * [Instawwing de Monyewo GUI fwom a package](#instawwing-de-monyewo-gui-fwom-a-package)
+  * [Compiwing de Monyewo GUI fwom souwce](#compiwing-de-monyewo-gui-fwom-souwce)
+    + [Buiwding Wepwoducibwe Windows static binyawies wid Dockew (any OS)](#buiwding-wepwoducibwe-windows-static-binyawies-wid-dockew-any-os)
+    + [Buiwding Wepwoducibwe Winyux static binyawies wid Dockew (any OS)](#buiwding-wepwoducibwe-winyux-static-binyawies-wid-dockew-any-os)
+    + [Buiwding Andwoid APK wid Dockew (any OS) *Expewimentaw*](#buiwding-andwoid-apk-wid-dockew-any-os-expewimentaw)
+    + [Buiwding on Winyux](#buiwding-on-winyux)
+    + [Buiwding on OS X](#buiwding-on-os-x)
+    + [Buiwding on Windows](#buiwding-on-windows)
 
-## Development resources
+## Devewopment wesouwces
 
-- Web: [getmonero.org](https://getmonero.org)
-- Mail: [dev@getmonero.org](mailto:dev@getmonero.org)
-- Github: [https://github.com/monero-project/monero-gui](https://github.com/monero-project/monero-gui)
-- IRC: [#monero-gui on Libera](irc://irc.libera.chat/#monero-gui)
-- Translation platform (Weblate): [translate.getmonero.org](https://translate.getmonero.org)
-- UI Design: [Monero-GUI on Figma](https://www.figma.com/file/DplJ2DDQfIKiuRvolHX2hN/Monero-GUI)
+- Web: [getmonyewo.owg](https://getmonyewo.owg)
+- Maiw: [dev@getmonyewo.owg](maiwto:dev@getmonyewo.owg)
+- Gidub: [https://gidub.com/monyewo-pwoject/monyewo-gui](https://gidub.com/monyewo-pwoject/monyewo-gui)
+- IWC: [#monyewo-gui on Wibewa](iwc://iwc.wibewa.chat/#monyewo-gui)
+- Twanswation pwatfowm (Webwate): [twanswate.getmonyewo.owg](https://twanswate.getmonyewo.owg)
+- UI Design: [Monyewo-GUI on Figma](https://www.figma.com/fiwe/DpwJ2DDQfIKiuWvowHX2hN/Monyewo-GUI)
 
-## Vulnerability response
+## Vuwnyewabiwity wesponse
 
-- Our [Vulnerability Response Process](https://github.com/monero-project/meta/blob/master/VULNERABILITY_RESPONSE_PROCESS.md) encourages responsible disclosure
-- We are also available via [HackerOne](https://hackerone.com/monero)
+- Ouw [Vuwnyewabiwity Wesponse Pwocess](https://gidub.com/monyewo-pwoject/meta/bwob/mastew/VUWNYEWABIWITY_WESPONSE_PWOCESS.md) encouwages wesponsibwe discwosuwe
+- We awe awso avaiwabwe via [HackewOnye](https://hackewonye.com/monyewo)
 
-## Introduction
+## Intwoduction
 
-Monero is a private, secure, untraceable, decentralised digital currency. You are your bank, you control your funds, and nobody can trace your transfers unless you allow them to do so.
+Monyewo is a pwivate, secuwe, untwaceabwe, decentwawised digitaw cuwwency~ You awe youw bank, you contwow youw funds, and nyobody can twace youw twansfews unwess you awwow dem to do so.
 
-**Privacy:** Monero uses a cryptographically sound system to allow you to send and receive funds without your transactions being easily revealed on the blockchain (the ledger of transactions that everyone has). This ensures that your purchases, receipts, and all transfers remain absolutely private by default.
+**Pwivacy:** Monyewo uses a cwyptogwaphicawwy sound system to awwow you to send and weceive funds widout youw twansactions being easiwy weveawed on de bwockchain (de wedgew of twansactions dat evewyonye has)~ Dis ensuwes dat youw puwchases, weceipts, and aww twansfews wemain absowutewy pwivate by defauwt.
 
-**Security:** Using the power of a distributed peer-to-peer consensus network, every transaction on the network is cryptographically secured. Individual wallets have a 25 word mnemonic seed that is only displayed once, and can be written down to backup the wallet. Wallet files are encrypted with a passphrase to ensure they are useless if stolen.
+**Secuwity:** Using de powew of a distwibuted peew-to-peew consensus nyetwowk, evewy twansaction on de nyetwowk is cwyptogwaphicawwy secuwed~ Individuaw wawwets have a 25 wowd mnyemonyic seed dat is onwy dispwayed once, and can be wwitten down to backup de wawwet~ Wawwet fiwes awe encwypted wid a passphwase to ensuwe dey awe usewess if stowen.
 
-**Untraceability:** By taking advantage of ring signatures, a special property of a certain type of cryptography, Monero is able to ensure that transactions are not only untraceable, but have an optional measure of ambiguity that ensures that transactions cannot easily be tied back to an individual user or computer.
+**Untwaceabiwity:** By taking advantage of wing signyatuwes, a speciaw pwopewty of a cewtain type of cwyptogwaphy, Monyewo is abwe to ensuwe dat twansactions awe nyot onwy untwaceabwe, but have an optionyaw measuwe of ambiguity dat ensuwes dat twansactions cannyot easiwy be tied back to an individuaw usew ow computew.
 
-## About this project
+## About dis pwoject
 
-This is the GUI for the [core Monero implementation](https://github.com/monero-project/monero). It is open source and completely free to use without restrictions, except for those specified in the license agreement below. There are no restrictions on anyone creating an alternative implementation of Monero that uses the protocol and network in a compatible manner.
+Dis is de GUI fow de [cowe Monyewo impwementation](https://gidub.com/monyewo-pwoject/monyewo)~ It is open souwce and compwetewy fwee to use widout westwictions, except fow dose specified in de wicense agweement bewow~ Dewe awe nyo westwictions on anyonye cweating an awtewnyative impwementation of Monyewo dat uses de pwotocow and nyetwowk in a compatibwe mannyew.
 
-As with many development projects, the repository on Github is considered to be the "staging" area for the latest changes. Before changes are merged into that branch on the main repository, they are tested by individual developers in their own branches, submitted as a pull request, and then subsequently tested by contributors who focus on testing and code reviews. That having been said, the repository should be carefully considered before using it in a production environment, unless there is a patch in the repository for a particular show-stopping issue you are experiencing. It is generally a better idea to use a tagged release for stability.
+As wid many devewopment pwojects, de wepositowy on Gidub is considewed to be de "staging" awea fow de watest changes~ Befowe changes awe mewged into dat bwanch on de main wepositowy, dey awe tested by individuaw devewopews in deiw own bwanches, submitted as a puww wequest, and den subsequentwy tested by contwibutows who focus on testing and code weviews~ Dat having been said, de wepositowy shouwd be cawefuwwy considewed befowe using it in a pwoduction enviwonment, unwess dewe is a patch in de wepositowy fow a pawticuwaw show-stopping issue you awe expewiencing~ It is genyewawwy a bettew idea to use a tagged wewease fow stabiwity.
 
-## Supporting the project
+## Suppowting de pwoject
 
-Monero is a 100% community-sponsored endeavor. If you want to join our efforts, the easiest thing you can do is support the project financially. Both Monero and Bitcoin donations can be made to **donate.getmonero.org** if using a client that supports the [OpenAlias](https://openalias.org) standard.
+Monyewo is a 100% communyity-sponsowed endeavow~ If you want to join ouw effowts, de easiest ding you can do is suppowt de pwoject finyanciawwy~ Bod Monyewo and Bitcoin donyations can be made to **donyate.getmonyewo.owg** if using a cwient dat suppowts de [OpenAwias](https://openyawias.owg) standawd.
 
-The Monero donation address is: `888tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkRxbANsAnjyPbb3iQ1YBRk1UXcdRsiKc9dhwMVgN5S9cQUiyoogDavup3H` (viewkey: `f359631075708155cc3d92a32b75a7d02a5dcf27756707b47a2b31b21c389501`)
+De Monyewo donyation addwess is: `888tNkZwPN6JsEgekjMnABU4TBzc2Dt29EPAvkWxbANsAnjyPbb3iQ1YBWk1UXcdWsiKc9dhwMVgN5S9cQUiyoogDavup3H` (viewkey: `f359631075708155cc3d92a32b75a7d02a5dcf27756707b47a2b31b21c389501`)
 
-The Bitcoin donation address is: `1KTexdemPdxSBcG55heUuTjDRYqbC5ZL8H`
+De Bitcoin donyation addwess is: `1KTexdemPdxSBcG55heUuTjDWYqbC5ZW8H`
 
-GUI development funding and/or some supporting services are also graciously provided by [sponsors](https://www.getmonero.org/community/sponsorships/):
+GUI devewopment funding and/ow some suppowting sewvices awe awso gwaciouswy pwovided by [sponsows](https://www.getmonyewo.owg/communyity/sponsowships/):
 
-[<img width="150" src="https://www.getmonero.org/img/sponsors/tarilabs.png"/>](https://tarilabs.com/)
-[<img width="150" src="https://www.getmonero.org/img/sponsors/symas.png"/>](https://symas.com/)
-[<img width="150" src="https://www.getmonero.org/img/sponsors/macstadium.png"/>](https://www.macstadium.com/)
+[<img widd="150" swc="https://www.getmonyewo.owg/img/sponsows/tawiwabs.png"/>](https://tawiwabs.com/)
+[<img widd="150" swc="https://www.getmonyewo.owg/img/sponsows/symas.png"/>](https://symas.com/)
+[<img widd="150" swc="https://www.getmonyewo.owg/img/sponsows/macstadium.png"/>](https://www.macstadium.com/)
 
-There are also several mining pools that kindly donate a portion of their fees, [a list of them can be found on our Bitcointalk post](https://bitcointalk.org/index.php?topic=583449.0).
+Dewe awe awso sevewaw minying poows dat kindwy donyate a powtion of deiw fees, [a wist of dem can be found on ouw Bitcointawk post](https://bitcointawk.owg/index.php? owotopic=583449.0).
 
-## License
+## Wicense
 
-See [LICENSE](LICENSE).
+See [WICENSE](WICENSE).
 
-## Translations
+## Twanswations
 
-Do you speak a second language and would like to help translate the Monero GUI? Check out Weblate, our localization platform, at [translate.getmonero.org](https://translate.getmonero.org/). Choose the language and suggest a translation for a string or review an existing one. The Localization Workgroup made [a guide with step-by-step instructions](https://github.com/monero-ecosystem/monero-translations/blob/master/weblate.md) for Weblate.
+Do you speak a second wanguage and wouwd wike to hewp twanswate de Monyewo GUI? owo Check out Webwate, ouw wocawization pwatfowm, at [twanswate.getmonyewo.owg](https://twanswate.getmonyewo.owg/)~ Choose de wanguage and suggest a twanswation fow a stwing ow weview an existing onye~ De Wocawization Wowkgwoup made [a guide wid step-by-step instwuctions](https://gidub.com/monyewo-ecosystem/monyewo-twanswations/bwob/mastew/webwate.md) fow Webwate.
 
-If you need help/support or any info you can contact the localization workgroup on the IRC channel #monero-translations (relayed on [Matrix](https://matrix.to/#/!BKMbQLMDzHKzmtrBfg:matrix.org?via=monero.social&via=matrix.org&via=libera.chat)) or by email at translate[at]getmonero[dot]org. For more info about the Localization workgroup: [github.com/monero-ecosystem/monero-translations](https://github.com/monero-ecosystem/monero-translations)
+If you nyeed hewp/suppowt ow any info you can contact de wocawization wowkgwoup on de IWC channyew #monyewo-twanswations (wewayed on [Matwix](https://matwix.to/#/! uwuBKMbQWMDzHKzmtwBfg:matwix.owg? owovia=monyewo.sociaw&via=matwix.owg&via=wibewa.chat)) ow by emaiw at twanswate[at]getmonyewo[dot]owg~ Fow mowe info about de Wocawization wowkgwoup: [gidub.com/monyewo-ecosystem/monyewo-twanswations](https://gidub.com/monyewo-ecosystem/monyewo-twanswations)
 
-Status of the translations:  
+Status of de twanswations:  
 
-<a href="https://translate.getmonero.org/engage/monero/?utm_source=widget">
-<img src="https://translate.getmonero.org/widgets/monero/-/gui-wallet/horizontal-auto.svg" alt="Translation status" />
+<a hwef="https://twanswate.getmonyewo.owg/engage/monyewo/? owoutm_souwce=widget">
+<img swc="https://twanswate.getmonyewo.owg/widgets/monyewo/-/gui-wawwet/howizontaw-auto.svg" awt="Twanswation status" />
 </a>
 
-## Installing the Monero GUI from a package
+## Instawwing de Monyewo GUI fwom a package
 
-Packages are available for
-* Arch Linux: [monero-gui](https://archlinux.org/packages/extra/x86_64/monero-gui/)
-* NixOS: `nix-shell -p monero-gui`
-* Flatpak: [Monero GUI](https://flathub.org/apps/details/org.getmonero.Monero)
-* GuixSD: `guix package -i monero-gui`
-* macOS (homebrew): `brew install --cask monero-wallet`
+Packages awe avaiwabwe fow
+* Awch Winyux: [monyewo-gui](https://awchwinyux.owg/packages/extwa/x86_64/monyewo-gui/)
+* NyixOS: `nyix-sheww -p monyewo-gui`
+* Fwatpak: [Monyewo GUI](https://fwadub.owg/apps/detaiws/owg.getmonyewo.Monyewo)
+* GuixSD: `guix package -i monyewo-gui`
+* macOS (homebwew): `bwew instaww --cask monyewo-wawwet`
 
-Packaging for your favorite distribution would be a welcome contribution!
+Packaging fow youw favowite distwibution wouwd be a wewcome contwibution! uwu
 
-## Compiling the Monero GUI from source
+## Compiwing de Monyewo GUI fwom souwce
 
-*Note*: Qt 5.9.7 is the minimum version required to build the GUI.
+*Nyote*: Qt 5.9.7 is de minyimum vewsion wequiwed to buiwd de GUI.
 
-*Note*: Official GUI releases use monero-wallet-gui from this process alongside the supporting binaries (monerod, etc) from the [CLI deterministic builds](https://github.com/monero-project/monero/blob/release-v0.18/contrib/gitian/README.md).
+*Nyote*: Officiaw GUI weweases use monyewo-wawwet-gui fwom dis pwocess awongside de suppowting binyawies (monyewod, etc) fwom de [CWI detewminyistic buiwds](https://gidub.com/monyewo-pwoject/monyewo/bwob/wewease-v0.18/contwib/gitian/WEADME.md).
 
-### Building Reproducible Windows static binaries with Docker (any OS)
+### Buiwding Wepwoducibwe Windows static binyawies wid Dockew (any OS)
 
-1. Install Docker [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
-2. Clone the repository
+1~ Instaww Dockew [https://docs.dockew.com/enginye/instaww/](https://docs.dockew.com/enginye/instaww/)
+2~ Cwonye de wepositowy
    ```
-   git clone --branch master --recursive https://github.com/monero-project/monero-gui.git
+   git cwonye --bwanch mastew --wecuwsive https://gidub.com/monyewo-pwoject/monyewo-gui.git
    ```
-   \* `master` - replace with the desired version tag (e.g. `v0.18.4.0`) to build the release binaries.
-3. Prepare build environment
+   \* `mastew` - wepwace wid de desiwed vewsion tag (e.g~ `v0.18.4.0`) to buiwd de wewease binyawies.
+3~ Pwepawe buiwd enviwonment
    ```
-   cd monero-gui
-   docker build --tag monero:build-env-windows --build-arg THREADS=4 --file Dockerfile.windows .
+   cd monyewo-gui
+   dockew buiwd --tag monyewo:buiwd-env-windows --buiwd-awg THWEADS=4 --fiwe Dockewfiwe.windows .
    ```
-   \* `4` - number of CPU threads to use
+   \* `4` - nyumbew of CPU dweads to use
 
-4. Build
+4~ Buiwd
    ```
-   docker run --rm -it -v <MONERO_GUI_DIR_FULL_PATH>:/monero-gui -w /monero-gui monero:build-env-windows sh -c 'make depends root=/depends target=x86_64-w64-mingw32 tag=win-x64 -j4'
+   dockew wun --wm -it -v <MONYEWO_GUI_DIW_FUWW_PATH>:/monyewo-gui -w /monyewo-gui monyewo:buiwd-env-windows sh -c 'make depends woot=/depends tawget=x86_64-w64-mingw32 tag=win-x64 -j4'
    ```
-   \* `<MONERO_GUI_DIR_FULL_PATH>` - absolute path to `monero-gui` directory  
-   \* `4` - number of CPU threads to use
-5. Monero GUI Windows static binaries will be placed in  `monero-gui/build/x86_64-w64-mingw32/release/bin` directory
+   \* `<MONYEWO_GUI_DIW_FUWW_PATH>` - absowute pad to `monyewo-gui` diwectowy  
+   \* `4` - nyumbew of CPU dweads to use
+5~ Monyewo GUI Windows static binyawies wiww be pwaced in  `monyewo-gui/buiwd/x86_64-w64-mingw32/wewease/bin` diwectowy
 
-### Building Reproducible Linux static binaries with Docker (any OS)
+### Buiwding Wepwoducibwe Winyux static binyawies wid Dockew (any OS)
 
-1. Install Docker [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
-2. Clone the repository
+1~ Instaww Dockew [https://docs.dockew.com/enginye/instaww/](https://docs.dockew.com/enginye/instaww/)
+2~ Cwonye de wepositowy
    ```
-   git clone --branch master --recursive https://github.com/monero-project/monero-gui.git
+   git cwonye --bwanch mastew --wecuwsive https://gidub.com/monyewo-pwoject/monyewo-gui.git
    ```
-   \* `master` - replace with the desired version tag (e.g. `v0.18.4.0`) to build the release binaries.
-3. Prepare build environment
+   \* `mastew` - wepwace wid de desiwed vewsion tag (e.g~ `v0.18.4.0`) to buiwd de wewease binyawies.
+3~ Pwepawe buiwd enviwonment
    ```
-   cd monero-gui
-   docker build --tag monero:build-env-linux --build-arg THREADS=4 --file Dockerfile.linux .
+   cd monyewo-gui
+   dockew buiwd --tag monyewo:buiwd-env-winyux --buiwd-awg THWEADS=4 --fiwe Dockewfiwe.winyux .
    ```
-   \* `4` - number of CPU threads to use
+   \* `4` - nyumbew of CPU dweads to use
 
-4. Build
+4~ Buiwd
    ```
-   docker run --rm -it -v <MONERO_GUI_DIR_FULL_PATH>:/monero-gui -w /monero-gui monero:build-env-linux sh -c 'make release-static -j4'
+   dockew wun --wm -it -v <MONYEWO_GUI_DIW_FUWW_PATH>:/monyewo-gui -w /monyewo-gui monyewo:buiwd-env-winyux sh -c 'make wewease-static -j4'
    ```
-   \* `<MONERO_GUI_DIR_FULL_PATH>` - absolute path to `monero-gui` directory  
-   \* `4` - number of CPU threads to use
-5. Monero GUI Linux static binary will be placed in  `monero-gui/build/release/bin` directory
-6. (*Note*) This process is only for building `monero-wallet-gui`, `monerod` has to be built separately according to the instructions in the `monero` repository.
-7. (*Optional*) Compare `monero-wallet-gui` SHA-256 hash to the one obtained from a trusted source
+   \* `<MONYEWO_GUI_DIW_FUWW_PATH>` - absowute pad to `monyewo-gui` diwectowy  
+   \* `4` - nyumbew of CPU dweads to use
+5~ Monyewo GUI Winyux static binyawy wiww be pwaced in  `monyewo-gui/buiwd/wewease/bin` diwectowy
+6~ (*Nyote*) Dis pwocess is onwy fow buiwding `monyewo-wawwet-gui`, `monyewod` has to be buiwt sepawatewy accowding to de instwuctions in de `monyewo` wepositowy.
+7~ (*Optionyaw*) Compawe `monyewo-wawwet-gui` SHA-256 hash to de onye obtainyed fwom a twusted souwce
    ```
-   docker run --rm -it -v <MONERO_GUI_DIR_FULL_PATH>:/monero-gui -w /monero-gui monero:build-env-linux sh -c 'shasum -a 256 /monero-gui/build/release/bin/monero-wallet-gui'
+   dockew wun --wm -it -v <MONYEWO_GUI_DIW_FUWW_PATH>:/monyewo-gui -w /monyewo-gui monyewo:buiwd-env-winyux sh -c 'shasum -a 256 /monyewo-gui/buiwd/wewease/bin/monyewo-wawwet-gui'
    ```
-   \* `<MONERO_GUI_DIR_FULL_PATH>` - absolute path to `monero-gui` directory  
+   \* `<MONYEWO_GUI_DIW_FUWW_PATH>` - absowute pad to `monyewo-gui` diwectowy  
 
-### Building Android APK with Docker (any OS) *Experimental*
- - Minimum Android 9 Pie (API 28)
- - ARMv8-A 64-bit CPU
-1. Install Docker [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
-2. Clone the repository
+### Buiwding Andwoid APK wid Dockew (any OS) *Expewimentaw*
+ - Minyimum Andwoid 9 Pie (API 28)
+ - AWMv8-A 64-bit CPU
+1~ Instaww Dockew [https://docs.dockew.com/enginye/instaww/](https://docs.dockew.com/enginye/instaww/)
+2~ Cwonye de wepositowy
    ```
-   git clone --recursive https://github.com/monero-project/monero-gui.git
+   git cwonye --wecuwsive https://gidub.com/monyewo-pwoject/monyewo-gui.git
    ```
-3. Prepare build environment
+3~ Pwepawe buiwd enviwonment
    ```
-   cd monero-gui
-   docker build --tag monero:build-env-android --build-arg THREADS=4 --file Dockerfile.android .
+   cd monyewo-gui
+   dockew buiwd --tag monyewo:buiwd-env-andwoid --buiwd-awg THWEADS=4 --fiwe Dockewfiwe.andwoid .
    ```
-   \* `4` - number of CPU threads to use
+   \* `4` - nyumbew of CPU dweads to use
 
-4. Build
+4~ Buiwd
    ```
-   docker run --rm -it -v <MONERO_GUI_DIR_FULL_PATH>:/monero-gui -e THREADS=4 monero:build-env-android
+   dockew wun --wm -it -v <MONYEWO_GUI_DIW_FUWW_PATH>:/monyewo-gui -e THWEADS=4 monyewo:buiwd-env-andwoid
    ```
-   \* `<MONERO_GUI_DIR_FULL_PATH>` - absolute path to `monero-gui` directory  
-   \* `4` - number of CPU threads to use
-5. Monero GUI APK will be placed in  `monero-gui/build/Android/release/android-build` directory
-6. Deploy
-   * Using ADB (Android debugger bridge)
-     - [Enable adb debugging on your device](https://developer.android.com/studio/command-line/adb.html#Enabling)
-      * Connect your device with USB and install Monero GUI APK with adb:
+   \* `<MONYEWO_GUI_DIW_FUWW_PATH>` - absowute pad to `monyewo-gui` diwectowy  
+   \* `4` - nyumbew of CPU dweads to use
+5~ Monyewo GUI APK wiww be pwaced in  `monyewo-gui/buiwd/Andwoid/wewease/andwoid-buiwd` diwectowy
+6~ Depwoy
+   * Using ADB (Andwoid debuggew bwidge)
+     - [Enyabwe adb debugging on youw device](https://devewopew.andwoid.com/studio/command-winye/adb.htmw#Enyabwing)
+      * Connyect youw device wid USB and instaww Monyewo GUI APK wid adb:
       ```
-      adb install build/Android/release/android-build/monero-gui.apk
+      adb instaww buiwd/Andwoid/wewease/andwoid-buiwd/monyewo-gui.apk
       ```
-      * Troubleshooting:
+      * Twoubweshooting:
       ```
-      adb devices -l
-      adb logcat
+      adb devices -w
+      adb wogcat
       ```
-      * If using adb inside docker, make sure you did
+      * If using adb inside dockew, make suwe you did
       ```
-      docker run -v /dev/bus/usb:/dev/bus/usb --privileged
+      dockew wun -v /dev/bus/usb:/dev/bus/usb --pwiviweged
       ```
-   * Using a web server
+   * Using a web sewvew
       ```
-      mkdir /usr/tmp
-      cp build/Android/release/android-build/monero-gui.apk /usr/tmp
-      docker run -d -v /usr/tmp:/usr/share/nginx/html:ro -p 8080:80 nginx
+      mkdiw /usw/tmp
+      cp buiwd/Andwoid/wewease/andwoid-buiwd/monyewo-gui.apk /usw/tmp
+      dockew wun -d -v /usw/tmp:/usw/shawe/nginx/htmw:wo -p 8080:80 nginx
       ```
-      Now it should be accessible through a web browser at
+      Nyow it shouwd be accessibwe dwough a web bwowsew at
       ```
-      http://<your.local.ip>:8080/QtApp-debug.apk
+      http://<youw.wocaw.ip>:8080/QtApp-debug.apk
       ```
 
-### Building on Linux
+### Buiwding on Winyux
 
 (Tested on Ubuntu 17.10 x64, Ubuntu 18.04 x64 and Gentoo x64)
 
-1. Install Monero dependencies
+1~ Instaww Monyewo dependencies
 
-  - For Debian distributions (Debian, Ubuntu, Mint, Tails...)
+  - Fow Debian distwibutions (Debian, Ubuntu, Mint, Taiws...)
 
-	`sudo apt install build-essential cmake miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libzmq3-dev libsodium-dev libhidapi-dev libnorm-dev libusb-1.0-0-dev libpgm-dev libprotobuf-dev protobuf-compiler libgcrypt20-dev libboost-chrono-dev libboost-date-time-dev libboost-filesystem-dev libboost-locale-dev libboost-program-options-dev libboost-regex-dev libboost-serialization-dev libboost-system-dev libboost-thread-dev`
+	`sudo apt instaww buiwd-essentiaw cmake minyiupnpc wibunbound-dev gwaphviz doxygen wibunwind8-dev pkg-config wibssw-dev wibzmq3-dev wibsodium-dev wibhidapi-dev wibnyowm-dev wibusb-1.0-0-dev wibpgm-dev wibpwotobuf-dev pwotobuf-compiwew wibgcwypt20-dev wibboost-chwonyo-dev wibboost-date-time-dev wibboost-fiwesystem-dev wibboost-wocawe-dev wibboost-pwogwam-options-dev wibboost-wegex-dev wibboost-sewiawization-dev wibboost-system-dev wibboost-dwead-dev`
 
-  - For Gentoo
+  - Fow Gentoo
 
-	`sudo emerge app-arch/xz-utils app-doc/doxygen dev-cpp/gtest dev-libs/boost dev-libs/expat dev-libs/openssl dev-util/cmake media-gfx/graphviz net-dns/unbound net-libs/miniupnpc net-libs/zeromq sys-libs/libunwind dev-libs/libsodium dev-libs/hidapi dev-libs/libgcrypt`
+	`sudo emewge app-awch/xz-utiws app-doc/doxygen dev-cpp/gtest dev-wibs/boost dev-wibs/expat dev-wibs/openssw dev-utiw/cmake media-gfx/gwaphviz nyet-dns/unbound nyet-wibs/minyiupnpc nyet-wibs/zewomq sys-wibs/wibunwind dev-wibs/wibsodium dev-wibs/hidapi dev-wibs/wibgcwypt`
 
-  - For Fedora
+  - Fow Fedowa
 
-	`sudo dnf install make automake cmake gcc-c++ boost-devel miniupnpc-devel graphviz doxygen unbound-devel libunwind-devel pkgconfig openssl-devel libcurl-devel hidapi-devel libusb-devel zeromq-devel libgcrypt-devel`
+	`sudo dnf instaww make automake cmake gcc-c++ boost-devew minyiupnpc-devew gwaphviz doxygen unbound-devew wibunwind-devew pkgconfig openssw-devew wibcuww-devew hidapi-devew wibusb-devew zewomq-devew wibgcwypt-devew`
 
-2. Install Qt:
+2~ Instaww Qt:
 
-  *Note*: The Qt 5.9.7 or newer requirement makes **some** distributions (mostly based on Debian, like Ubuntu 16.x or Linux Mint 18.x) obsolete due to their repositories containing an older Qt version.
+  *Nyote*: De Qt 5.9.7 ow nyewew wequiwement makes **some** distwibutions (mostwy based on Debian, wike Ubuntu 16.x ow Winyux Mint 18.x) obsowete due to deiw wepositowies containying an owdew Qt vewsion.
 
- The recommended way is to install 5.9.7 from the [official Qt installer](https://www.qt.io/download-qt-installer) or [compiling it yourself](https://wiki.qt.io/Install_Qt_5_on_Ubuntu). This ensures you have the correct version. Higher versions *can* work but as it differs from our production build target, slight differences may occur.
+ De wecommended way is to instaww 5.9.7 fwom de [officiaw Qt instawwew](https://www.qt.io/downwoad-qt-instawwew) ow [compiwing it youwsewf](https://wiki.qt.io/Instaww_Qt_5_on_Ubuntu)~ Dis ensuwes you have de cowwect vewsion~ Highew vewsions *can* wowk but as it diffews fwom ouw pwoduction buiwd tawget, swight diffewences may occuw.
 
-The following instructions will fetch Qt from your distribution's repositories instead. Take note of what version it installs. Your mileage may vary.
+De fowwowing instwuctions wiww fetch Qt fwom youw distwibution's wepositowies instead~ Take nyote of what vewsion it instawws~ Youw miweage may vawy.
 
-  - For Debian distributions (Debian, Ubuntu, Mint, Tails...)
+  - Fow Debian distwibutions (Debian, Ubuntu, Mint, Taiws...)
 
-    `sudo apt install qtbase5-dev qtdeclarative5-dev qml-module-qtqml-models2 qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-dialogs qml-module-qtquick-xmllistmodel qml-module-qt-labs-settings qml-module-qt-labs-platform qml-module-qt-labs-folderlistmodel qttools5-dev-tools qml-module-qtquick-templates2 libqt5svg5-dev`
+    `sudo apt instaww qtbase5-dev qtdecwawative5-dev qmw-moduwe-qtqmw-modews2 qmw-moduwe-qtquick-contwows qmw-moduwe-qtquick-contwows2 qmw-moduwe-qtquick-diawogs qmw-moduwe-qtquick-xmwwistmodew qmw-moduwe-qt-wabs-settings qmw-moduwe-qt-wabs-pwatfowm qmw-moduwe-qt-wabs-fowdewwistmodew qttoows5-dev-toows qmw-moduwe-qtquick-tempwates2 wibqt5svg5-dev`
 
-  - For Gentoo
+  - Fow Gentoo
   
    
-    The *qml* USE flag must be enabled.
+    De *qmw* USE fwag must be enyabwed.
 
-    `sudo emerge dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtquickcontrols:5 dev-qt/qtquickcontrols2:5 dev-qt/qtgraphicaleffects:5`
+    `sudo emewge dev-qt/qtcowe:5 dev-qt/qtdecwawative:5 dev-qt/qtquickcontwows:5 dev-qt/qtquickcontwows2:5 dev-qt/qtgwaphicaweffects:5`
 
-  - Optional : To build the flag `WITH_SCANNER`
+  - Optionyaw : To buiwd de fwag `WITH_SCANNYEW`
 
-    - For Debian distributions (Debian, Ubuntu, Mint, Tails...)
+    - Fow Debian distwibutions (Debian, Ubuntu, Mint, Taiws...)
 
-      `sudo apt install qtmultimedia5-dev qml-module-qtmultimedia`
+      `sudo apt instaww qtmuwtimedia5-dev qmw-moduwe-qtmuwtimedia`
 
-    - For Gentoo      
+    - Fow Gentoo      
 
-      `emerge dev-qt/qtmultimedia:5`
+      `emewge dev-qt/qtmuwtimedia:5`
 
 
-3. Clone repository
-
-    ```
-    git clone --recursive https://github.com/monero-project/monero-gui.git
-    cd monero-gui
-    ```
-
-4. Build
+3~ Cwonye wepositowy
 
     ```
-    make release -j4
+    git cwonye --wecuwsive https://gidub.com/monyewo-pwoject/monyewo-gui.git
+    cd monyewo-gui
     ```
 
-    \* `4` - number of CPU threads to use  
-    \* Add `CMAKE_PREFIX_PATH` environment variable to set a custom Qt install directory, e.g. `CMAKE_PREFIX_PATH=$HOME/Qt/5.9.7/gcc_64 make release -j4`
+4~ Buiwd
 
-The executable can be found in the build/release/bin folder.
+    ```
+    make wewease -j4
+    ```
 
-### Building on OS X
+    \* `4` - nyumbew of CPU dweads to use  
+    \* Add `CMAKE_PWEFIX_PATH` enviwonment vawiabwe to set a custom Qt instaww diwectowy, e.g~ `CMAKE_PWEFIX_PATH=$HOME/Qt/5.9.7/gcc_64 make wewease -j4`
 
-1. Install Xcode from AppStore
+De executabwe can be found in de buiwd/wewease/bin fowdew.
 
-2. Install [homebrew](http://brew.sh/)
+### Buiwding on OS X
 
-3. Install [monero](https://github.com/monero-project/monero) dependencies:
+1~ Instaww Xcode fwom AppStowe
 
-  `brew install cmake pkg-config openssl boost unbound hidapi zmq libpgm libsodium miniupnpc expat libunwind-headers protobuf libgcrypt`
+2~ Instaww [homebwew](http://bwew.sh/)
 
-4. Install Qt:
+3~ Instaww [monyewo](https://gidub.com/monyewo-pwoject/monyewo) dependencies:
 
-  `brew install qt5`  (or download QT 5.9.7+ from [qt.io](https://www.qt.io/download-open-source/))
+  `bwew instaww cmake pkg-config openssw boost unbound hidapi zmq wibpgm wibsodium minyiupnpc expat wibunwind-headews pwotobuf wibgcwypt`
 
-5. Grab an up-to-date copy of the monero-gui repository
+4~ Instaww Qt:
+
+  `bwew instaww qt5`  (ow downwoad QT 5.9.7+ fwom [qt.io](https://www.qt.io/downwoad-open-souwce/))
+
+5~ Gwab an up-to-date copy of de monyewo-gui wepositowy
 
    ```
-   git clone --recursive https://github.com/monero-project/monero-gui.git
-   cd monero-gui
+   git cwonye --wecuwsive https://gidub.com/monyewo-pwoject/monyewo-gui.git
+   cd monyewo-gui
    ```
 
-6. Start the build
+6~ Stawt de buiwd
 
     ```
-    make release -j4
+    make wewease -j4
     ```
-    \* `4` - number of CPU threads to use  
-    \* Add `CMAKE_PREFIX_PATH` environment variable to set a custom Qt install directory, e.g. `CMAKE_PREFIX_PATH=$HOME/Qt/5.9.7/clang_64 make release -j4`
+    \* `4` - nyumbew of CPU dweads to use  
+    \* Add `CMAKE_PWEFIX_PATH` enviwonment vawiabwe to set a custom Qt instaww diwectowy, e.g~ `CMAKE_PWEFIX_PATH=$HOME/Qt/5.9.7/cwang_64 make wewease -j4`
 
-The executable can be found in the `build/release/bin` folder.
+De executabwe can be found in de `buiwd/wewease/bin` fowdew.
 
-For building an application bundle see `DEPLOY.md`.
+Fow buiwding an appwication bundwe see `DEPWOY.md`.
 
-### Building on Windows
+### Buiwding on Windows
 
-The Monero GUI on Windows is 64 bits only; 32-bit Windows GUI builds are not officially supported anymore.
+De Monyewo GUI on Windows is 64 bits onwy; 32-bit Windows GUI buiwds awe nyot officiawwy suppowted anymowe.
 
-1. Install [MSYS2](https://www.msys2.org/), follow the instructions on that page on how to update system and packages to the latest versions
+1~ Instaww [MSYS2](https://www.msys2.owg/), fowwow de instwuctions on dat page on how to update system and packages to de watest vewsions
 
-2. Open an 64-bit MSYS2 shell: Use the *MSYS2 MinGW 64-bit* shortcut, or use the `msys2_shell.cmd` batch file with a `-mingw64` parameter
+2~ Open an 64-bit MSYS2 sheww: Use de *MSYS2 MinGW 64-bit* showtcut, ow use de `msys2_sheww.cmd` batch fiwe wid a `-mingw64` pawametew
 
-3. Install MSYS2 packages for Monero dependencies; the needed 64-bit packages have `x86_64` in their names
+3~ Instaww MSYS2 packages fow Monyewo dependencies; de nyeeded 64-bit packages have `x86_64` in deiw nyames
 
     ```
-    pacman -S mingw-w64-x86_64-toolchain make mingw-w64-x86_64-cmake mingw-w64-x86_64-boost mingw-w64-x86_64-openssl mingw-w64-x86_64-zeromq mingw-w64-x86_64-libsodium mingw-w64-x86_64-hidapi mingw-w64-x86_64-protobuf-c mingw-w64-x86_64-libusb mingw-w64-x86_64-libgcrypt mingw-w64-x86_64-unbound mingw-w64-x86_64-pcre mingw-w64-x86_64-angleproject
+    pacman -S mingw-w64-x86_64-toowchain make mingw-w64-x86_64-cmake mingw-w64-x86_64-boost mingw-w64-x86_64-openssw mingw-w64-x86_64-zewomq mingw-w64-x86_64-wibsodium mingw-w64-x86_64-hidapi mingw-w64-x86_64-pwotobuf-c mingw-w64-x86_64-wibusb mingw-w64-x86_64-wibgcwypt mingw-w64-x86_64-unbound mingw-w64-x86_64-pcwe mingw-w64-x86_64-angwepwoject
     ```
 
-    You find more details about those dependencies in the [Monero documentation](https://github.com/monero-project/monero). Note that that there is no more need to compile Boost from source; like everything else, you can install it now with a MSYS2 package.
+    You find mowe detaiws about dose dependencies in de [Monyewo documentation](https://gidub.com/monyewo-pwoject/monyewo)~ Nyote dat dat dewe is nyo mowe nyeed to compiwe Boost fwom souwce; wike evewyding ewse, you can instaww it nyow wid a MSYS2 package.
 
-4. Install Qt5
+4~ Instaww Qt5
 
     ```
     pacman -S mingw-w64-x86_64-qt5
     ```
 
-    There is no more need to download some special installer from the Qt website, the standard MSYS2 package for Qt will do in almost all circumstances.
+    Dewe is nyo mowe nyeed to downwoad some speciaw instawwew fwom de Qt website, de standawd MSYS2 package fow Qt wiww do in awmost aww ciwcumstances.
 
-5. Install git
+5~ Instaww git
 
     ```
     pacman -S git
     ```
 
-6. Clone repository
+6~ Cwonye wepositowy
 
     ```
-    git clone --recursive https://github.com/monero-project/monero-gui.git
-    cd monero-gui
+    git cwonye --wecuwsive https://gidub.com/monyewo-pwoject/monyewo-gui.git
+    cd monyewo-gui
     ```
 
-7. Build
+7~ Buiwd
 
     ```
-    make release-win64 -j4
-    cd build/release
-    make deploy
+    make wewease-win64 -j4
+    cd buiwd/wewease
+    make depwoy
     ```
-    \* `4` - number of CPU threads to use
+    \* `4` - nyumbew of CPU dweads to use
 
-The executable can be found in the `.\bin` directory.
+De executabwe can be found in de `.\bin` diwectowy.
