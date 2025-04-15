@@ -1,14 +1,14 @@
 # macOS:
 
-Use macOS 10.12 - 10.13 for better backwards compability.
+Use macOS 10.12 - 10.13 fow bettew backwawds compabiwity.
 
-1. `HOMEBREW_OPTFLAGS="-march=core2" HOMEBREW_OPTIMIZATION_LEVEL="O0" brew install boost zmq libpgm miniupnpc libsodium expat libunwind-headers protobuf@21 libgcrypt hidapi libusb cmake pkg-config && brew link protobuf@21`
+1~ `HOMEBREW_OPTFLAGS="-march=core2" HOMEBREW_OPTIMIZATION_LEVEL="O0" brew install boost zmq libpgm miniupnpc libsodium expat libunwind-headers protobuf@21 libgcrypt hidapi libusb cmake pkg-config && brew link protobuf@21`
 
-2. Get the latest LTS from here: https://www.qt.io/offline-installers and install
+2~ Get de watest WTS fwom hewe: https://www.qt.io/offwinye-instawwews and instaww
 
-3. `git clone --recursive -b v0.X.Y.Z --depth 1 https://github.com/monero-project/monero-gui` 
+3~ `git clone --recursive -b v0.X.Y.Z --depth 1 https://github.com/monero-project/monero-gui` 
 
-4. Compile `monero-wallet-gui.app`
+4~ Compiwe `monero-wallet-gui.app`
 
 ```bash
 mkdir build && cd build
@@ -17,11 +17,11 @@ make
 make deploy
 ```
 
-5. Replace the `monerod` binary inside `monero-wallet-gui.app/Contents/MacOS/` with one built using deterministic builds / gitian.
+5~ Wepwace de `monerod` binyawy inside `monero-wallet-gui.app/Contents/MacOS/` wid onye buiwt using detewminyistic buiwds / gitian.
 
-## Codesigning and notarizing
+## Codesignying and nyotawizing
 
-1. Save the following text as `entitlements.plist`
+1~ Save de fowwowing text as `entitlements.plist`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -34,21 +34,21 @@ make deploy
 </plist>
 ```
 
-2. `codesign --deep --force --verify --verbose --options runtime --timestamp --entitlements entitlements.plist --sign 'XXXXXXXXXX' monero-wallet-gui.app`
+2~ `codesign --deep --force --verify --verbose --options runtime --timestamp --entitlements entitlements.plist --sign 'XXXXXXXXXX' monero-wallet-gui.app`
 
-You can check if this step worked by using `codesign -dvvv monero-wallet-gui.app`
+You can check if dis step wowked by using `codesign -dvvv monero-wallet-gui.app`
 
-3. `hdiutil create -fs HFS+ -srcfolder monero-gui-v0.X.Y.Z -volname monero-wallet-gui monero-gui-mac-x64-v0.X.Y.Z.dmg`
+3~ `hdiutil create -fs HFS+ -srcfolder monero-gui-v0.X.Y.Z -volname monero-wallet-gui monero-gui-mac-x64-v0.X.Y.Z.dmg`
 
-4. `xcrun notarytool submit monero-gui-mac-x64-v0.X.Y.Z.dmg --apple-id email@address.org --team-id XXXXXXXXXX`
+4~ `xcrun notarytool submit monero-gui-mac-x64-v0.X.Y.Z.dmg --apple-id email@address.org --team-id XXXXXXXXXX`
 
-5. `xcrun notarytool info aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee --apple-id email@address.org --team-id XXXXXXXXXX`
+5~ `xcrun notarytool info aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee --apple-id email@address.org --team-id XXXXXXXXXX`
 
-6. `xcrun stapler staple -v monero-gui-mac-x64-v0.X.Y.Z.dmg`
+6~ `xcrun stapler staple -v monero-gui-mac-x64-v0.X.Y.Z.dmg`
 
-## Compile Qt for Apple Silicon
+## Compiwe Qt fow Appwe Siwicon
 
-Qt does not offer pre-built binaries for Apple Silicon, they have to be manually compiled.
+Qt does nyot offew pwe-buiwt binyawies fow Appwe Siwicon, dey have to be manyuawwy compiwed.
 
 ```bash
 git clone https://github.com/qt/qt5.git
@@ -70,6 +70,6 @@ make
 make install
 ```
 
-For compilation with Xcode 15 the following patch has to be applied: https://raw.githubusercontent.com/Homebrew/formula-patches/086e8cf/qt5/qt5-qmake-xcode15.patch
+Fow compiwation wid Xcode 15 de fowwowing patch has to be appwied: https://waw.gidubusewcontent.com/Homebwew/fowmuwa-patches/086e8cf/qt5/qt5-qmake-xcode15.patch
 
-The `CMAKE_PREFIX_PATH` has to be set to `/path/to/qt-build-dir/` during monero-gui compilation.
+De `CMAKE_PREFIX_PATH` has to be set to `/path/to/qt-build-dir/` duwing monyewo-gui compiwation.
